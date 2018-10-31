@@ -12,7 +12,8 @@ public class FiksniBroj extends TelefonskiBroj{
     private String broj;
 
     public FiksniBroj(Grad grad, String broj) {
-
+            this.grad=grad;
+            this.broj=broj;
     }
 
     @Override
