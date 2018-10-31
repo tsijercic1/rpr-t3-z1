@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.HashMap;
 
@@ -32,7 +33,19 @@ public class Imenik {
     }
 
     public String naSlovo(char s) {
-     return "abcde";
+        int brojac = 1;
+        String formOutput = "";
+        Iterator it = brojKorisnik.entrySet().iterator();
+
+        while(it.hasNext()) {
+            HashMap.Entry<TelefonskiBroj, String> pair = (HashMap.Entry<TelefonskiBroj, String>) it.next();
+            if (pair.getValue().charAt(0) == s) {
+                formOutput += brojac + ". " + pair.getValue() + " - " + pair.getKey().ispisi() + "\n";
+                brojac++;
+            }
+        }
+
+        return formOutput;
 
     }
 
