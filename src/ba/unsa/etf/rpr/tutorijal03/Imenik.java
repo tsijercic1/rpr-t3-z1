@@ -7,18 +7,14 @@ import java.util.HashMap;
 
 public class Imenik {
 
-    private HashMap<TelefonskiBroj,String> brojKorisnik=new HashMap<>();
+    private HashMap<String,TelefonskiBroj> brojKorisnik=new HashMap<>();
 
     public String dajBroj(String imePrezime) {
-
-        for(TelefonskiBroj o:brojKorisnik.keySet()){
-            if(brojKorisnik.get(o).equals(imePrezime))return o.ispisi();
-        }
-        return "Not found";
+        return brojKorisnik.get(imePrezime).ispisi();
     }
 
     public void dodaj(String imePrezime, TelefonskiBroj broj) {
-            brojKorisnik.put(broj,imePrezime);
+            brojKorisnik.put(imePrezime,broj);
     }
 
     public Set<String> izGrada(FiksniBroj.Grad nazivGrada) {
@@ -33,23 +29,11 @@ public class Imenik {
     }
 
     public String naSlovo(char s) {
-        int brojac = 1;
-        String formOutput = "";
-        Iterator it = brojKorisnik.entrySet().iterator();
-
-        while(it.hasNext()) {
-            HashMap.Entry<TelefonskiBroj, String> pair = (HashMap.Entry<TelefonskiBroj, String>) it.next();
-            if (pair.getValue().charAt(0) == s) {
-                formOutput += brojac + ". " + pair.getValue() + " - " + pair.getKey().ispisi() + "\n";
-                brojac++;
-            }
-        }
-
-        return formOutput;
+        return  "";
 
     }
 
     public String dajIme(TelefonskiBroj broj){
-        return brojKorisnik.getOrDefault(broj, "Not found!");
+        return "";
     }
 }
