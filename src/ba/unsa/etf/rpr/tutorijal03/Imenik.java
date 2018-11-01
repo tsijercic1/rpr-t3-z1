@@ -26,9 +26,14 @@ public class Imenik {
     }
 
     public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad nazivGrada) {
-        Set<TelefonskiBroj> hash_Set = new HashSet<TelefonskiBroj>();
-
-        return hash_Set;
+        Set<TelefonskiBroj> brojeviIzGrada = new HashSet<>();
+        for(Map.Entry<String, TelefonskiBroj> element : brojKorisnik.entrySet()) {
+            TelefonskiBroj broj = element.getValue();
+            if (broj instanceof FiksniBroj){
+                if(((FiksniBroj)broj).getGrad().equals(nazivGrada))brojeviIzGrada.add(element.getValue());
+            }
+        }
+        return brojeviIzGrada;
     }
 
     public String naSlovo(char s) {
