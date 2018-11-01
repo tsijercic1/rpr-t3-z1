@@ -1,9 +1,6 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.HashMap;
+import java.util.*;
 
 public class Imenik {
 
@@ -14,12 +11,18 @@ public class Imenik {
     }
 
     public void dodaj(String imePrezime, TelefonskiBroj broj) {
-            brojKorisnik.put(imePrezime,broj);
+            brojKorisnik.putIfAbsent(imePrezime,broj);
     }
 
     public Set<String> izGrada(FiksniBroj.Grad nazivGrada) {
-        Set<String> hash_Set = new HashSet<String>();
-        return hash_Set;
+       Set<String> townPeople = new TreeSet<>();
+       for(Map.Entry<String, TelefonskiBroj> element : brojKorisnik.entrySet()) {
+           TelefonskiBroj broj = element.getValue();
+           if (broj instanceof FiksniBroj){
+               if(((FiksniBroj)broj).getGrad().equals(nazivGrada))townPeople.add(element.getKey());
+           }
+       }
+       return townPeople;
     }
 
     public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad nazivGrada) {
