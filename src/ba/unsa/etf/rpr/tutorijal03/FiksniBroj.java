@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
-public class FiksniBroj extends TelefonskiBroj{
+public class FiksniBroj extends TelefonskiBroj {
     public enum Grad{
         TRAVNIK, ORASJE, ZENICA, SARAJEVO,
         LIVNO, TUZLA, MOSTAR, BIHAC, GORAZDE, SIROKIBRIJEG,
@@ -93,4 +93,5 @@ public class FiksniBroj extends TelefonskiBroj{
     public int hashCode() {
         return 0;
     }
+
 }
