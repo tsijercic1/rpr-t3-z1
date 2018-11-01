@@ -37,8 +37,12 @@ public class Imenik {
     }
 
     public String naSlovo(char s) {
-        return  "";
-
+        int counter=1;
+        String people = "";
+        for(Map.Entry<String, TelefonskiBroj> element : brojKorisnik.entrySet()) {
+            if( element.getKey().charAt(0)==s)people+=String.format("%d. %s - %s\n",counter,element.getKey(),element.getValue().ispisi());
+        }
+        return  people;
     }
 
     public String dajIme(TelefonskiBroj broj){
