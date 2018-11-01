@@ -46,6 +46,9 @@ public class Imenik {
     }
 
     public String dajIme(TelefonskiBroj broj){
+        for(Map.Entry<String, TelefonskiBroj> element : brojKorisnik.entrySet()) {
+            if( element.getValue().compareTo(broj)==0)return element.getKey();
+        }
         return "";
     }
 }
