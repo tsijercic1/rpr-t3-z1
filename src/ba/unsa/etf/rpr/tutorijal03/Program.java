@@ -44,7 +44,7 @@ public class Program {
 	   commands +="**kraj --> izlaz iz programa\n";
 	   String myCommand;
 	   Scanner citac = new Scanner(System.in);
-	   for(;;){
+	   Vanjska:for(;;){
 	       System.out.println(commands);
 	       System.out.print("komanda: ");
 	       myCommand = citac.next();
@@ -53,9 +53,9 @@ public class Program {
                    aplikacija.dodajmob();
                    break;
                case "kraj":
-                   break;
+                   break Vanjska;
                default:
-                   break;
+                   break ;
            }
 
        }
