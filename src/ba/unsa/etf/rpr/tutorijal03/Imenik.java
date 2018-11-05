@@ -6,6 +6,8 @@ public class Imenik {
 
     private HashMap<String,TelefonskiBroj> brojKorisnik=new HashMap<>();
 
+    public Imenik(){}
+
     public String dajBroj(String imePrezime) {
         return brojKorisnik.get(imePrezime).ispisi();
     }
