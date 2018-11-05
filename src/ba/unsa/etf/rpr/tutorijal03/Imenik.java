@@ -28,7 +28,7 @@ public class Imenik {
     }
 
     public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad nazivGrada) {
-        Set<TelefonskiBroj> brojeviIzGrada = new HashSet<>();
+        Set<TelefonskiBroj> brojeviIzGrada = new TreeSet<>();
         for(Map.Entry<String, TelefonskiBroj> element : brojKorisnik.entrySet()) {
             TelefonskiBroj broj = element.getValue();
             if (broj instanceof FiksniBroj){
