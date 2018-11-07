@@ -4,7 +4,29 @@ import java.util.Scanner;
 
 public class Program {
      private  Imenik imenik = new Imenik() ;
+    private void dodajfiks(){
+        Scanner citac = new Scanner(System.in);
+        System.out.println("Ime i prezime korisnika: ");
 
+        String ime=citac.next();
+        String prezime=citac.next();
+
+        System.out.println("Unesite grad:\n"+
+                "TRAVNIK\n"+ "ORASJE\n"+ "ZENICA\n"+ "SARAJEVO\n"+ "LIVNO\n"+
+                "TUZLA\n"+ "MOSTAR\n"+ "BIHAC\n"+ "GORAZDE\n"+ "SIROKIBRIJEG\n"+
+                "MRKONJICGRAD\n"+ "BANJALUKA\n"+ "PRIJEDOR\n"+ "DOBOJ\n"+
+                "SAMAC\n"+ "BIJELJINA\n"+ "ZVORNIK\n"+ "PALE\n"+"FOCA\n"+"TREBINJE\n");
+
+        String grad=citac.next();
+        FiksniBroj.Grad grad1 = FiksniBroj.Grad.valueOf(grad);
+        System.out.print("Unesite broj koji dolazi poslije pozivnog(123-456): ");
+        String broj=citac.next();
+        try {
+            imenik.dodaj(ime + " " + prezime, new FiksniBroj(grad1, broj));
+        }catch(IllegalArgumentException izuzetak) {
+            System.out.println(izuzetak.getMessage());
+        }
+    }
     private void dodajmob(){
         Scanner citac = new Scanner(System.in);
         System.out.println("Ime i prezime korisnika: ");
@@ -20,6 +42,7 @@ public class Program {
         System.out.print("Unesite pozivni broj bez 0(primjer 61 za 061): ");
         int pozivni;
         pozivni = citac.nextInt();
+        System.out.print("Unesite broj koji dolazi poslije pozivnog(123-456): ");
         String broj=citac.next();
         try {
             imenik.dodaj(ime + " " + prezime, new MobilniBroj(pozivni, broj));
@@ -51,6 +74,9 @@ public class Program {
 	       switch (myCommand){
                case "dodajmob":
                    aplikacija.dodajmob();
+                   break;
+               case "dodajfiks":
+                   aplikacija.dodajfiks();
                    break;
                case "kraj":
                    break Vanjska;
