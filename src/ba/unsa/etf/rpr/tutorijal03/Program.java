@@ -1,9 +1,24 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
 import java.util.Scanner;
+import java.util.Set;
 
 public class Program {
      private  Imenik imenik = new Imenik() ;
+     private void izgrada(){
+         System.out.println("Unesite grad:\n"+
+                 "TRAVNIK\n"+ "ORASJE\n"+ "ZENICA\n"+ "SARAJEVO\n"+ "LIVNO\n"+
+                 "TUZLA\n"+ "MOSTAR\n"+ "BIHAC\n"+ "GORAZDE\n"+ "SIROKIBRIJEG\n"+
+                 "MRKONJICGRAD\n"+ "BANJALUKA\n"+ "PRIJEDOR\n"+ "DOBOJ\n"+
+                 "SAMAC\n"+ "BIJELJINA\n"+ "ZVORNIK\n"+ "PALE\n"+"FOCA\n"+"TREBINJE\n");
+         Scanner citac = new Scanner(System.in);
+         String grad = citac.next();
+         FiksniBroj.Grad grad1 = FiksniBroj.Grad.valueOf(grad);
+         Set<String> names = imenik.izGrada(grad1);
+         for(String element : names){
+             System.out.println("--"+element);
+         }
+     }
     private void dodajfiks(){
         Scanner citac = new Scanner(System.in);
         System.out.println("Ime i prezime korisnika: ");
@@ -77,6 +92,9 @@ public class Program {
                    break;
                case "dodajfiks":
                    aplikacija.dodajfiks();
+                   break;
+               case "izgrada":
+                   aplikacija.izgrada();
                    break;
                case "kraj":
                    break Vanjska;
