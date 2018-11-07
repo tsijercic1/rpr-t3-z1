@@ -5,6 +5,20 @@ import java.util.Set;
 
 public class Program {
      private  Imenik imenik = new Imenik() ;
+     private void izgradabrojevi(){
+         System.out.println("Unesite grad:\n"+
+                 "TRAVNIK\n"+ "ORASJE\n"+ "ZENICA\n"+ "SARAJEVO\n"+ "LIVNO\n"+
+                 "TUZLA\n"+ "MOSTAR\n"+ "BIHAC\n"+ "GORAZDE\n"+ "SIROKIBRIJEG\n"+
+                 "MRKONJICGRAD\n"+ "BANJALUKA\n"+ "PRIJEDOR\n"+ "DOBOJ\n"+
+                 "SAMAC\n"+ "BIJELJINA\n"+ "ZVORNIK\n"+ "PALE\n"+"FOCA\n"+"TREBINJE\n");
+         Scanner citac = new Scanner(System.in);
+         String grad = citac.next();
+         FiksniBroj.Grad grad1 = FiksniBroj.Grad.valueOf(grad);
+         Set<TelefonskiBroj> brojevi = imenik.izGradaBrojevi(grad1);
+         for(TelefonskiBroj element : brojevi){
+             System.out.println(element.ispisi());
+         }
+     }
      private void izgrada(){
          System.out.println("Unesite grad:\n"+
                  "TRAVNIK\n"+ "ORASJE\n"+ "ZENICA\n"+ "SARAJEVO\n"+ "LIVNO\n"+
@@ -95,6 +109,9 @@ public class Program {
                    break;
                case "izgrada":
                    aplikacija.izgrada();
+                   break;
+               case "izgradabrojevi":
+                   aplikacija.izgradabrojevi();
                    break;
                case "kraj":
                    break Vanjska;
