@@ -43,6 +43,7 @@ public class Imenik {
         String people = "";
         for(Map.Entry<String, TelefonskiBroj> element : brojKorisnik.entrySet()) {
             if( element.getKey().charAt(0)==s)people+=String.format("%d. %s - %s\n",counter,element.getKey(),element.getValue().ispisi());
+            counter++;
         }
         return  people;
     }

@@ -5,6 +5,11 @@ import java.util.Set;
 
 public class Program {
      private  Imenik imenik = new Imenik() ;
+     private void naslovo(){
+         Scanner citac = new Scanner(System.in);
+         char slovo = (citac.next()).charAt(0);
+         System.out.println( imenik.naSlovo(slovo));
+     }
      private void izgradabrojevi(){
          System.out.println("Unesite grad:\n"+
                  "TRAVNIK\n"+ "ORASJE\n"+ "ZENICA\n"+ "SARAJEVO\n"+ "LIVNO\n"+
@@ -112,6 +117,9 @@ public class Program {
                    break;
                case "izgradabrojevi":
                    aplikacija.izgradabrojevi();
+                   break;
+               case "naslovo":
+                   aplikacija.naslovo();
                    break;
                case "kraj":
                    break Vanjska;
