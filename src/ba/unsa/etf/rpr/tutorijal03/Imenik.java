@@ -4,6 +4,10 @@ import java.util.*;
 
 public class Imenik {
 
+    public HashMap<String, TelefonskiBroj> getBrojKorisnik() {
+        return brojKorisnik;
+    }
+
     private HashMap<String,TelefonskiBroj> brojKorisnik=new HashMap<>();
 
     public Imenik(){}

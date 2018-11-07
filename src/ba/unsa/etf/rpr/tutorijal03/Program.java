@@ -1,10 +1,26 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
 
 public class Program {
      private  Imenik imenik = new Imenik() ;
+
+     private void dajime(){
+         HashMap<String,TelefonskiBroj> kopija= imenik.getBrojKorisnik();
+         System.out.print("Unesite broj korisnika: ");
+         Scanner citac = new Scanner(System.in);
+         String input = citac.next();
+         for(HashMap.Entry<String,TelefonskiBroj> element : kopija.entrySet()){
+             if(element.getValue().ispisi().equals(input))
+             {
+                System.out.println("Ime korisnika s brojem "+input+" je "+element.getKey());
+                return;
+             }
+         }
+         System.out.println("Broj ne postoji!");
+     }
      private void naslovo(){
          Scanner citac = new Scanner(System.in);
          char slovo = (citac.next()).charAt(0);
@@ -120,6 +136,9 @@ public class Program {
                    break;
                case "naslovo":
                    aplikacija.naslovo();
+                   break;
+               case "dajime":
+                   aplikacija.dajime();
                    break;
                case "kraj":
                    break Vanjska;
