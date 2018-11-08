@@ -44,14 +44,14 @@ public class Imenik {
 
     public String naSlovo(char s) {
         int counter=1;
-        String people = "";
+        StringBuilder people = new StringBuilder();
         for(Map.Entry<String, TelefonskiBroj> element : brojKorisnik.entrySet()) {
             if( element.getKey().charAt(0)==s){
-                people+=String.format("%d. %s - %s\n",counter,element.getKey(),element.getValue().ispisi());
+                people.append(String.format("%d. %s - %s\n", counter, element.getKey(), element.getValue().ispisi()));
                 counter++;
             }
         }
-        return  people;
+        return people.toString();
     }
 
     public String dajIme(TelefonskiBroj broj){
